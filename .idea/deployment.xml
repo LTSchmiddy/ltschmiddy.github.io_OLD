@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="My CPCC Webspace">
+    <serverData>
+      <paths name="My CPCC Webspace">
+        <serverdata>
+          <mappings>
+            <mapping deploy="www/web115" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

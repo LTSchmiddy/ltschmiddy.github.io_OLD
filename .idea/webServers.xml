@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1bc9c2a3-1051-4852-aa7a-7b4ce4eb75b0" name="My CPCC Webspace" url="http://students.cpcc.edu/~aschmid3/web115">
+        <fileTransfer host="sftp.cpcc.edu" port="22" rootFolder="/home/aschmid3" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
