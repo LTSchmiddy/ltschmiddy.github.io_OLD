@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-image: url("../images/BackgroundLarger.jpg");
+    background-size: cover;
+    font-size: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.contBox {
+    padding: 5px 50px 5px 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: block;
+    overflow: hidden;
+}
+
+
+/* Main Content */
+header {
+    position: relative;
+    min-height: 150px;
+    margin-bottom: 20px;
+}
+
+main, footer {
+    margin-bottom: 20px;
+}
+
+nav {
+    margin-bottom: 20px;
+    z-index: -1;
+}
+
+.SelectedPage {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+}
+
+.UnselectedPage {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+.UnselectedPage:hover {
+    background-color: #333333;
+}
+
+#headerNameArea {
+    position: absolute;
+    top: 25px;
+    width: calc(70% - 20px);
+    left: calc(0% + 20px);
+}
+
+#headerFigureArea {
+    text-align: right;
+    position: absolute;
+    width: 30%;
+    right: 0%;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+main h1 {
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+main h2 {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+main h3 {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+main h4 {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+main p {
+    padding-bottom: 20px;
+}
+
+main {}
+
+ul li{
+    margin: 10px 0;
+}
+
+ol li{
+    margin: 10px 0;
+    padding: 5px 0;
+}
+
+footer {}
+
+#FooterContent {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+main a {
+    color: #6666ff;
+}
+
+main a:visited {
+    color: #d39ae0;
+}
+
+main a:hover{
+    color: #9999ff;
+}
+
+
+

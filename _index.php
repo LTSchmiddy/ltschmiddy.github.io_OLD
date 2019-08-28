@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!--Setting Main Stylesheet:-->
+    <link rel="stylesheet" type="text/css" href="styles/default.css">
+
+    <!--Loading JS Libraries:-->
+    <script src="scripts/lib/showdown/dist/showdown.js"></script>
+    <script src="scripts/lib/jquery-3.3.1.js"></script>
+    <script src="scripts/cgi-access.js"></script>
+    <script src="scripts/ie_fixes.js"></script>
+
+    <!--Page Title:-->
+    <title>Alexander Paul Schmid</title>
+
+
+</head>
+
+<body>
+
+    <header class="contBox"> <?php include("global_content/header.php") ?>
+
+
+    </header>
+    <nav class="contBox"></nav>
+    <main class="contBox" id="PageContent">
+        <!--If you can see this message, it's possible your browser has Javascript disabled. You'll need to re-enable Javascript to access this website.<br/>-->
+        <!--<br/>-->
+        <!--Either that, or you are using a internet browser doesn't support modern Javascript. In this case, you'll need to update your browser to use this site.-->
+
+
+    </main>
+
+
+    <footer class="contBox">
+        <?php include("global_content/footer.htms") ?>
+
+
+    </footer>
+
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>
+
+<!--
+    To do for project:
+
+    Use h2 for content headings.
+
+    Finish content.
+
+
+
+-->
