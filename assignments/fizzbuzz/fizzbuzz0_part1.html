@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="pathToRoot" content="../../" />
+    <meta name="pageId" content="" />
+
+    <!--Setting Main Stylesheet:-->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../styles/default.css">
+    <!-- Adding some style info only used in this page: -->
+    <style>
+
+        #getNameGrid {
+            /*background-color: #7777ff;*/
+            box-sizing: content-box;
+            display: grid;
+            grid-template-columns: 4fr 5fr;
+            grid-gap: 20px;
+            width: 400px;
+            padding-left: 50px;
+            padding-bottom: 50px;
+        }
+
+        input#f-submit {
+            grid-column: span 2;
+        }
+
+        .in-label {
+            /*text-align: right;*/
+        }
+
+
+    </style>
+
+
+    <!--Loading JS Libraries:-->
+    <script src="../../scripts/bower_components/showdown/dist/showdown.js"></script>
+    <script src="../../scripts/bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../scripts/cgi-access.js"></script>
+    <script src="../../scripts/ie_fixes.js"></script>
+
+    <!--Page Title:-->
+    <title>Fizz Buzz 0, Part 1 - Alexander Paul Schmid</title>
+
+
+</head>
+
+<body>
+<header class="contBox"></header>
+<nav class="contBox"></nav>
+<main class="contBox">
+    <h2>Fizz Buzz 0, Part 1</h2>
+    <h3 id="greeting">Welcome to Trove Media Library Manager</h3>
+
+    <form id="getName">
+        <div id="getNameGrid">
+            <div class="grid-item in-label"><label for="f-first_name">First Name: </label></div>
+            <input class="grid-item" type="text" id="f-first_name" name="first_name"/>
+
+            <div class="grid-item in-label"><label for="f-middle_initial">Middle Initial: </label></div>
+            <input class="grid-item" type="text" id="f-middle_initial" name="middle_initial"/>
+
+            <div class="grid-item in-label"><label for="f-last_name">Last Name: </label></div>
+            <input class="grid-item" type="text" id="f-last_name" name="last_name"/>
+
+            <input class="grid-item" id="f-submit" type="submit" value="Submit"/>
+        </div>
+
+
+
+    </form>
+
+    <div id="textOutput"></div>
+
+
+
+</main>
+<footer class="contBox"></footer>
+
+<script src="../../scripts/main.js"></script>
+<script>
+
+    const headerBase = "Welcome to Trove Media Library Manager";
+
+    $("#getName").submit(function(){
+        let pageTitle = $("#greeting");
+
+        let firstNameElem = $("#f-first_name").get()[0];
+        let middleInitialElem = $("#f-middle_initial").get()[0];
+        let lastNameElem = $("#f-last_name").get()[0];
+
+        pageTitle.html(headerBase + ", " + firstNameElem.value + " " + middleInitialElem.value + " " + lastNameElem.value + "!");
+
+
+
+        let textOutput = $("#textOutput");
+        textOutput.html("");
+        for (let i = 0; i < 125; i++) {
+
+            let lineOut = textOutput.html() + (i + 1).toString() + ": Hello Friend!<br/>\n";
+            console.log(lineOut);
+            textOutput.html(lineOut);
+        }
+
+
+        return false;
+    });
+
+</script>
+
+</body>
+</html>

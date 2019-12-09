@@ -1,0 +1,26 @@
+{
+  "name": "alex_web115",
+  "homepage": "https://github.com/LTSchmiddy/web-115-repo",
+  "authors": [
+    "LTSchmiddy <schmidalex1996@gmail.com>"
+  ],
+  "description": "",
+  "main": "../_index.php",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "showdown": "^1.9.0",
+    "showdown-date": "^1.1.0"
+  },
+  "resolutions": {
+    "showdown": "^1.9.0"
+  }
+}

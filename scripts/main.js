@@ -19,100 +19,85 @@
 
 // ============== Global Variables: ==========================
 // ****** Header Config: ******
-const HeaderPath = "global_content/header.htms";
-const HeaderSelector = "header";
 const blinkerCursorUpdateTime = 500;
 const blinkerCursorTagName = "blinkingUnderscore";
 const blinkerCursorCharacter = "_";
-
+const PageTitleSuffix = " - Alex Schmid";
 let blinkerCursorElement = null;
 
-// ****** Navbar Config ******
-const NavbarSelector = "nav";
-const NavbarEntries = [
-    ["Home", "index.htmc"],
-    ["Course Contract", "contract.md"],
-    ["About Me", "introduction"]
-];
+// let pageName = "";
+// let pageId = "";
 
 
-// ****** Footer Config: ******
-const FooterPath = "global_content/footer.htms";
-const FooterSelector = "footer";
-
-
-// ****** Body Config: ******
-const DefaultPagePath = "index.htmc";
-const PagePathParam = "page";
-const PagesDir = "pages/";
-const PagesExtension = ".htmc";
-const MDPagesExtension = ".md";
-const PageTitleElementID = "PageTitle";
-const PageTitleSuffix = " - Alex Schmid";
-const PageTitleRecheckTime =  50;
-const PageContentElementID = "PageContent";
-const PageContentElement = document.getElementById(PageContentElementID);
-
-// Parsing Page Config:
-const PageConfig_StartParse = "<!--{";
-const PageConfig_EndParse = "}-->";
-
-// Page Config Values:
-const PageConfig_TitleKey = "Title";
-const PageConfig_BackgroundImageKey = "BackgroundImage";
-
-
-// Page Config Variable:
-let PageTitleElement = document.getElementById(PageTitleElementID);
-let DefaultPageConfig = {
-    "Title": "Home",
-    "BackgroundImage": "url('images/BackgroundLarger.jpg')"
-
+const navbarEntries = {
+    "Home": "_index.html",
+    "About Me": "introduction.html",
+    "Contract": "contract.html",
+    "My Brand": "my_brand.html",
+    "Table of Contents": "table_of_contents.html"
 };
-let PageConfig = {};
 
-
-
-// let PageConfigRaw = null;
 
 let MarkdownConverter = new showdown.Converter();
 
 
-// ****** Setting Derived Globals: ******
-const PageTitleElementSelector = "#" + PageTitleElementID;
-const PageContentElementSelector = "#" + PageContentElementID;
-let PagePath = DefaultPagePath;
-
-
 
 // ============== Global Methods: ==========================
-// ****** Generic Methods: ******
-function getUrlVars() {
-    let vars = {};
-    let parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
 
-function getUrlParam(parameter, defaultvalue){
-    let urlparameter = defaultvalue;
-    if(window.location.href.indexOf(parameter) > -1){
-        urlparameter = getUrlVars()[parameter];
-    }
-    return urlparameter;
-}
 
 function GoToPage(nextPage) {
-    window.location.href = "_index.html?page=" + nextPage;
+    window.location.href = nextPage;
+}
+
+// Construct Page
+function loadHeader() {
+    $('header').html("<div id=\"headerNameArea\">\n" +
+        "<h1>&gt;&gt;Trove Media Library Manager<span id=\"blinkingUnderscore\"></span></h1>\n" +
+        "</div>");
+
+}
+
+function loadFooter(pathToRoot) {
+    $('footer').html("<div id=\"FooterContent\">\n" +
+        "© 2019 - designed by LT_Schmiddy (Alex Schmid). <br/><br/>\n" +
+        "<a href=\"http://validator.w3.org/check?uri=referer\" target=\"_blank\">\n" +
+        "<img src=\"" + pathToRoot + "images/valid_html5.gif\" alt=\"Validate HTML!\"></a>\n" +
+        "<a href=\"http://jigsaw.w3.org/css-validator/check/referer\" target=\"_blank\">\n" +
+        "<img src=\"" + pathToRoot + "images/vcss-blue.gif\" alt=\"Validate CSS!\"></a>\n" +
+        "</div>");
+
+
+}
+
+
+
+function assembleNavbar(pageId, pathToRoot) {
+    let navbar = $("nav");
+
+    let retVal = "";
+
+    console.log(navbarEntries);
+
+    Object.entries(navbarEntries).forEach(i => {
+        console.log(pathToRoot);
+
+        if (pageId === i[0]) {
+            retVal += "<a class=\"SelectedPage\" href ='" + pathToRoot + i[1] + "'>" + i[0] + "</a> ";
+        }
+        else {
+            retVal += "<a class=\"UnselectedPage\" href ='" + pathToRoot + i[1] + "'>" + i[0] + "</a> ";
+        }
+
+    });
+
+    console.log("Assembling Navbar");
+    console.log(retVal);
+
+    navbar.html(retVal);
 }
 
 
 // ****** Header Methods: ******
-function LoadHeader() {
-    $(HeaderSelector).load(HeaderPath);
-}
-
 function blinkHandlerOn () {
 
     if (blinkerCursorElement != null) {
@@ -132,141 +117,20 @@ function blinkHandlerOff () {
     setTimeout(function(){ blinkHandlerOn(); }, blinkerCursorUpdateTime);
 }
 
-// ****** Navbar Methods: ******
-function AssembleNavbar() {
-    let retVal = "";
-
-    for (let i = 0; i < NavbarEntries.length; i++) {
-        if (NavbarEntries[i][1] == PagePath){
-            retVal += "<button class=\"SelectedPage\" onclick=\"GoToPage('" + NavbarEntries[i][1] + "')\" >" + NavbarEntries[i][0] + "</button> ";
-            // retVal += "<button class=\"SelectedPage\" href=\"_index.html?page=" + NavbarEntries[i][1] +"\">" + NavbarEntries[i][0] + "</button> ";
-        } else {
-            retVal += "<button class=\"UnselectedPage\" onclick=\"GoToPage('" + NavbarEntries[i][1] + "')\" >" + NavbarEntries[i][0] + "</button> ";
-            // retVal += "<button class=\"UnselectedPage\" href=\"_index.html?page=" + NavbarEntries[i][1] +"\">" + NavbarEntries[i][0] + "</button> ";
-        }
-    }
-
-    $(NavbarSelector).html(retVal);
-}
-
-
-// ****** Footer Methods: ******
-function LoadFooter() {
-    $(FooterSelector).load(FooterPath);
-
-    // let text = '#### hello, markdown!';
-    // $(FooterSelector).html(converter.makeHtml(text));
-
-}
-
-
-// ****** Page Methods: ******
-function DetermineCurrentPage () {
-    PagePath = getUrlParam(PagePathParam, DefaultPagePath);
-    // alert(PagePath);
-}
-
-function LoadCurrentPage(){
-    LoadPage(PagePath);
-}
-
-function GetPageConfig(key){
-    if (PageConfig.hasOwnProperty(key)) {
-        return PageConfig[key];
-    } else {
-        return DefaultPageConfig[key];
-    }
-}
-
-
-function LoadPage(pathToPage){
-    // $(PageElementSelector).load(PagesDir + pathToPage + PagesExtension);
-
-    let usePagePath = PagesDir + pathToPage;
-
-    let isMD = false;
-
-
-    if (usePagePath.endsWith(MDPagesExtension)){
-        isMD = true;
-    } else if (usePagePath.endsWith(PagesExtension)){
-        isMD = false;
-    } else {
-        usePagePath += PagesExtension;
-        isMD = false;
-    }
-
-
-
-    let PageConfigRaw = $.post(usePagePath, function(data, status){
-
-        // if (status != "success") {
-        //     alert("Something went wrong in loading your page. Check the Javascript console for more information.")
-        // }
-        console.log("JQ executed");
-
-        let rawConfig = data.substring(data.indexOf(PageConfig_StartParse) + PageConfig_StartParse.length - 1, data.indexOf(PageConfig_EndParse) + 1);
-        PageConfig = JSON.parse(rawConfig);
-        // console.log(status);
-        // console.log(PageConfig);
-
-        ConfigCurrentPage();
-
-        if (isMD){
-            $(PageContentElementSelector).html(MarkdownConverter.makeHtml(data));
-        } else {
-            $(PageContentElementSelector).html(data);
-        }
-
-        // alert("Data: " + rawConfig + "\nStatus: " + status);
-    });
-    console.log("JQ should have executed...");
-
-}
-
-function ConfigCurrentPage() {
-
-    let useTitle = GetPageConfig(PageConfig_TitleKey);
-    document.title = useTitle + PageTitleSuffix;
-    updateOnScreenTitle(useTitle);
-
-    document.body.style.backgroundImage = GetPageConfig(PageConfig_BackgroundImageKey);
-
-}
-
-
-
-
-function updateOnScreenTitle(newTitle) {
-    let PageTitleElement = document.getElementById(PageTitleElementID);
-
-    if (PageTitleElement == null) {
-        setTimeout(function(){ updateOnScreenTitle(newTitle); }, PageTitleRecheckTime);
-    } else {
-        $(PageTitleElementSelector).html(newTitle);
-    }
-
-}
-
-
-
 
 // ============== Main Execution: ==========================
 
 $(document).ready(function(){
-    DetermineCurrentPage();
-    // LoadHeader();
+    let pathToRoot = $('meta[name=pathToRoot]').attr("content");
+    let pageId = $('meta[name=pageId]').attr("content");
+
+
+    loadHeader();
+    loadFooter(pathToRoot);
+
     blinkHandlerOn();
-    AssembleNavbar();
-    // LoadFooter();
+    let mdSections = $(".markdown");
 
-    if (PageContentElement != null) {
-        // DetermineCurrentPage();
-        LoadCurrentPage();
-        // console.log("Page should have loaded...");
-    } else {
-        updateOnScreenTitle($(HeaderSelector).html());
-    }
-
+    assembleNavbar(pageId, pathToRoot);
 
 });

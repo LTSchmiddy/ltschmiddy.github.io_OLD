@@ -1,21 +1,30 @@
+/*@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');*/
 body {
-    font-family: Arial, sans-serif;
-    color: white;
-    background-image: url("../images/BackgroundLarger.jpg");
-    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
+    color: #111111;
+    /*background-image: url("../images/BackgroundLarger.jpg");*/
+    /*background-size: cover;*/
+    background-color: #7777ff;
     font-size: 22px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
 }
 
 .contBox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
     padding: 5px 50px 5px 50px;
-    background-color: rgba(0, 0, 0, 0.8);
+    /*background-color: rgba(0, 0, 0, 0.8);*/
+    background-color: #E6E6E6;
     display: block;
     overflow: hidden;
+    border-radius: 15px;
 }
 
+@media only screen and (max-width: 900px)  {
+    .contBox {
+        width: calc(90% - 30px);
+    }
+}
 
 /* Main Content */
 header {
@@ -33,20 +42,26 @@ nav {
     z-index: -1;
 }
 
+#footerLinks{
+    text-align: center;
+    /*background-color: #008800;*/
+
+}
+
+
 .SelectedPage {
-    background-color: white;
-    color: black;
+    /*background-color: white;*/
+    color: #7777ff;
     font-size: 20px;
 }
 
 .UnselectedPage {
-    background-color: black;
-    color: white;
+    /*background-color: black;*/
+    color: #111111;
     font-size: 20px;
 }
 
 .UnselectedPage:hover {
-    background-color: #333333;
 }
 
 #headerNameArea {
@@ -60,11 +75,14 @@ nav {
     text-align: right;
     position: absolute;
     width: 30%;
-    right: 0%;
+    right: 0;
 }
 
 header h1 {
     font-size: 40px;
+    font-weight: bolder;
+    font-style: italic;
+    /*text-decoration: underline;*/
 }
 
 main h1 {
@@ -75,6 +93,8 @@ main h1 {
 main h2 {
     font-size: 30px;
     font-weight: bolder;
+    text-decoration: underline;
+    /*font-style: italic;*/
 }
 
 main h3 {
@@ -112,16 +132,22 @@ footer {}
 
 
 main a {
-    color: #6666ff;
+    color: #7777ff;
 }
 
 main a:visited {
-    color: #d39ae0;
+    color: #7777ff;
 }
 
 main a:hover{
-    color: #9999ff;
+    color: #7777ff;
 }
 
+.scroll_pane {
+    overflow: scroll;
+}
 
-
+code {
+    background-color: black;
+    color: #008800;
+}

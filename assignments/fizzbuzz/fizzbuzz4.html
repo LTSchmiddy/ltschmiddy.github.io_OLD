@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="pathToRoot" content="../../" />
+    <meta name="pageId" content="" />
+
+    <!--Setting Main Stylesheet:-->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../styles/default.css">
+    <!-- Adding some style info only used in this page: -->
+    <style>
+
+
+        .gridBase {
+            /*background-color: #7777ff;*/
+            box-sizing: content-box;
+            display: grid;
+            grid-gap: 20px;
+            padding-left: 50px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            width: 500px;
+            grid-template-columns: 4fr 5fr;
+
+        }
+
+        .gridBase #f-middle_initial {
+            width: 50px;
+
+
+        }
+
+        input#f-submit {
+            grid-column: span 2;
+        }
+
+        .in-label {
+            /*text-align: right;*/
+        }
+
+        .in-label-2 {
+
+        }
+
+
+    </style>
+
+
+    <!--Loading JS Libraries:-->
+    <script src="../../scripts/bower_components/showdown/dist/showdown.js"></script>
+    <script src="../../scripts/bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../scripts/cgi-access.js"></script>
+    <script src="../../scripts/ie_fixes.js"></script>
+
+    <!--Page Title:-->
+    <title>Fizz Buzz 4 - Alexander Paul Schmid</title>
+
+
+</head>
+
+<body>
+<header class="contBox"></header>
+<nav class="contBox"></nav>
+<main class="contBox">
+    <h2>Fizz Buzz 4</h2>
+    <h3 id="greeting">Welcome to Trove Media Library Manager</h3>
+
+    <form id="getName">
+        <div id="getNameGrid" class="gridBase">
+            <div class="grid-item in-label"><label for="f-first_name">First Name: </label></div>
+            <input class="grid-item" type="text" id="f-first_name" name="first_name"/>
+
+            <div class="grid-item in-label"><label for="f-middle_initial">Middle Initial: </label></div>
+            <input class="grid-item" type="text" id="f-middle_initial" name="middle_initial" maxlength="1" />
+
+            <div class="grid-item in-label"><label for="f-last_name">Last Name: </label></div>
+            <input class="grid-item" type="text" id="f-last_name" name="last_name"/>
+
+
+        </div>
+        <hr/>
+
+        <div class="gridBase">
+            <div class="grid-item"><label for="f-first_divisor">First Divisor: </label></div>
+            <input class="grid-item" type="number" id="f-first_divisor" name="first_divisor" value="3"/>
+
+            <div class="grid-item" ><label for="f-first_divisor-word">First Divisor Word: </label></div>
+            <input class="grid-item" type="text" id="f-first_divisor-word" name="first_divisor-word" value="RENDER"/>
+        </div>
+        <br/>
+        <div class="gridBase">
+            <div class="grid-item"><label for="f-second_divisor">Second Divisor: </label></div>
+            <input class="grid-item" type="number" id="f-second_divisor" name="second_divisor" value="5" />
+
+            <div class="grid-item in-label-2"><label for="f-second_divisor-word">Second Divisor Word: </label></div>
+            <input class="grid-item" type="text" id="f-second_divisor-word" name="second_divisor-word" value="BUFFER"/>
+        </div>
+        <br/>
+        <div class="gridBase">
+            <div class="grid-item"><label for="f-third_divisor">Third Divisor: </label></div>
+            <input class="grid-item" type="number" id="f-third_divisor" name="third_divisor" value="7"/>
+
+            <div class="grid-item"><label for="f-third_divisor-word">Third Divisor Word: </label></div>
+            <input class="grid-item" type="text" id="f-third_divisor-word" name="third_divisor-word" value="SEEK"/>
+        </div>
+        <hr/>
+        <div class="gridBase">
+            <div class="grid-item"><label for="f-no_divisor-word">Not Divisible Word: </label></div>
+            <input class="grid-item" type="text" id="f-no_divisor-word" name="no_divisor-word" value="Stream"/>
+
+            <div class="grid-item"><label for="f-total_iterations">Total Iterations: </label></div>
+            <input class="grid-item" type="number" id="f-total_iterations" name="total_iterations" value="125"/>
+        </div>
+        <hr/>
+
+        <div id="submitGrid" class="gridBase">
+            <input class="grid-item" id="f-submit" type="submit" value="Submit"/>
+
+        </div>
+
+    </form>
+
+    <div id="textOutput"></div>
+
+</main>
+<footer class="contBox"></footer>
+
+<script src="../../scripts/main.js"></script>
+<script>
+
+    const headerBase = "Welcome to Trove Media Library Manager";
+
+
+    function isDivisibleBy(value, divisor) {
+        return ((value + 1) % divisor === 0);
+    }
+
+    function getInputValueById(id) {
+        // console.log($(id).get());
+        return $("#"+id).get()[0].value;
+    }
+
+    const updatePage = async function () {
+        let pageTitle = $("#greeting");
+
+        let firstNameElem = getInputValueById("f-first_name");
+        let middleInitialElem = getInputValueById("f-middle_initial");
+        let lastNameElem = getInputValueById("f-last_name");
+
+
+        let firstDivisor = parseInt(getInputValueById("f-first_divisor"));
+        let firstDivisorWord = getInputValueById("f-first_divisor-word");
+
+        let secondDivisor = parseInt(getInputValueById("f-second_divisor"));
+        let secondDivisorWord = getInputValueById("f-second_divisor-word");
+
+        let thirdDivisor = parseInt(getInputValueById("f-third_divisor"));
+        let thirdDivisorWord = getInputValueById("f-third_divisor-word");
+
+
+        let noDivisorWord = getInputValueById("f-no_divisor-word");
+        let loopVal = parseInt(getInputValueById("f-total_iterations"));
+
+
+
+        pageTitle.html(headerBase + ", " + firstNameElem + " " + middleInitialElem + " " + lastNameElem + "!");
+
+
+        // let loopVal;
+        // while (typeof loopVal === 'undefined' || isNaN(loopVal)){
+        //     let textVal = prompt("How high do you want to count, " + firstNameElem + "?");
+        //     loopVal = parseInt(textVal);
+        //
+        //     if (isNaN(loopVal)) {
+        //         alert("'" + textVal + "' is not valid numerical input. Try again...");
+        //     }
+        //
+        //     console.log(typeof loopVal);
+        //     console.log(loopVal);
+        // }
+
+
+        let textOutput = $("#textOutput");
+        textOutput.html("");
+
+
+        let retVal = "";
+        for (let i = 0; i < loopVal; i++) {
+
+            if (!(isDivisibleBy(i, firstDivisor) || isDivisibleBy(i, secondDivisor) || isDivisibleBy(i, thirdDivisor))) {
+                retVal += (i + 1).toString() + ": " + noDivisorWord + ".<br/>\n";
+            } else {
+                retVal += (i + 1).toString() + ":" +
+                    (isDivisibleBy(i, firstDivisor) ? " " + firstDivisorWord : "") +
+                    (isDivisibleBy(i, secondDivisor) ? " " + secondDivisorWord : "") +
+                    (isDivisibleBy(i, thirdDivisor) ? " " + thirdDivisorWord : "") +
+                    ".<br/>\n";
+            }
+
+
+            // console.log(lineOut);
+        }
+
+        textOutput.html(retVal);
+
+        return "Done";
+    };
+
+    $("#getName").submit(function() {
+        $("#textOutput").html("Updating...");
+
+        setTimeout(updatePage, 10);
+        return false;
+    });
+
+</script>
+
+</body>
+</html>

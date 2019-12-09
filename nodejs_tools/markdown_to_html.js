@@ -2,7 +2,7 @@ const inFilePath = "pages/contract.md";
 const outFilePath = "pages/contract.htmc";
 
 
-const showdown  = require('../scripts/lib/showdown/dist/showdown.js');
+const showdown  = require('../scripts/bower_components/showdown/dist/showdown.js');
 const fs = require('fs');
 const showdownConverter = new showdown.Converter();
 

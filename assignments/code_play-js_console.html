@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="pathToRoot" content="../" />
+    <meta name="pageId" content="My Brand" />
+
+    <!--Setting Main Stylesheet:-->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../styles/default.css">
+    <!--Loading JS Libraries:-->
+
+
+    <script src="../scripts/bower_components/showdown/dist/showdown.js"></script>
+    <script src="../scripts/bower_components/jquery/dist/jquery.js"></script>
+    <script src="../scripts/cgi-access.js"></script>
+    <script src="../scripts/ie_fixes.js"></script>
+
+    <!--Page Title:-->
+    <title>About Me - Alexander Paul Schmid</title>
+
+
+</head>
+
+<body>
+<header class="contBox"></header>
+<nav class="contBox"></nav>
+<main class="contBox">
+
+    <h2>
+        Assignment: Code Play - JS Console
+    </h2>
+
+    <p id="codeplay">
+        Output from Google Chrome JS console: <a href="assignments/codeplayjs.txt" target="_blank">Codeplayjs.txt</a>
+    </p>
+
+
+    <pre class="scroll_pane"><code>console.log("Hello Alex");
+
+VM154:1 Hello Alex
+
+undefined
+
+var myMessage = "Hello Alex";
+
+undefined
+
+console.log(myMessage);
+
+VM244:1 Hello Alex
+
+undefined
+
+console.log("I don't just coding commands willy-nilly. Writing 50 random JS expressions is going to take me a while.");
+
+VM283:1 I don't just coding commands willy-nilly. Writing 50 random JS expressions is going to take me a while.
+
+undefined
+
+console.log(2 + 2);
+
+VM352:1 4
+
+undefined
+
+var someNumber = 3 + 3;
+
+undefined
+
+console.log(someNumber);
+
+VM438:1 6
+
+undefined
+
+console.log("I'm running this console on an 'about:blank' page in Chrome. Maybe I could use JS to assemble some content?");
+
+VM482:1 I'm running this console on an 'about:blank' page in Chrome. Maybe I could use JS to assemble some content?
+
+undefined
+
+console.log("Let's try...");
+
+VM529:1 Let's try...
+
+undefined
+
+document.body.innerHTML = "&lt;h1&gt;Hello Alex&lt;/h1&gt;";
+
+"&lt;h1&gt;Hello Alex&lt;/h1&gt;"
+
+console.log("HA! I wasn't sure that would work.\n\n\n... This could get interesting. :)");
+
+VM607:1 HA! I wasn't sure that would work.
+
+... This could get interesting. :)
+
+undefined
+
+document.body.innerHTML += "&lt;p&gt;The is an about:blank page that I decorated. I used the JS console to add some stuff to it.");
+
+VM645:1 Uncaught SyntaxError: Unexpected token ')'
+
+document.body.innerHTML += "&lt;p&gt;The is an about:blank page that I decorated. I used the JS console to add some stuff to it.";
+
+"&lt;h1&gt;Hello Alex&lt;/h1&gt;&lt;p&gt;The is an about:blank page that I decorated. I used the JS console to add some stuff to it."
+
+console.log("Let's try to alter the CSS...");
+
+VM946:1 Let's try to alter the CSS...
+
+undefined
+
+console.log(document.styleSheets);
+
+VM1084:1 StyleSheetList {length: 0}length: 0__proto__: StyleSheetListitem: ƒ item()length: (...)constructor: ƒ StyleSheetList()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "StyleSheetList"get length: ƒ length()__proto__: Object
+
+undefined
+
+document.head.innerHTML += "&lt;style&gt;&lt;/style&gt;" // Let's see if this counts as adding a stylesheet
+
+"&lt;style&gt;&lt;/style&gt;"
+
+console.log(document.styleSheets);
+
+VM1345:1 StyleSheetList {0: CSSStyleSheet, length: 1}0: CSSStyleSheet {ownerRule: null, cssRules: CSSRuleList, rules: CSSRuleList, type: "text/css", href: null, …}cssRules: CSSRuleList {0: CSSStyleRule, length: 1}disabled: falsehref: nullmedia: MediaList {mediaText: "", length: 0}ownerNode: styleownerRule: nullparentStyleSheet: nullrules: CSSRuleList {0: CSSStyleRule, length: 1}title: nulltype: "text/css"__proto__: CSSStyleSheetlength: 1__proto__: StyleSheetListitem: ƒ item()length: (...)constructor: ƒ StyleSheetList()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "StyleSheetList"get length: ƒ length()__proto__: Object
+
+undefined
+
+console.log("Boo yah!");
+
+VM1421:1 Boo yah!
+
+undefined
+
+var mainStyle = document.styleSheets[0];
+
+undefined
+
+mainStyle.addRule("body", "background-color: #5555ff;", 0);
+
+-1
+
+console.log(mainStyle);
+
+VM1713:1 CSSStyleSheet {ownerRule: null, cssRules: CSSRuleList, rules: CSSRuleList, type: "text/css", href: null, …}cssRules: CSSRuleList0: CSSStyleRule {selectorText: "body", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "body { background-color: rgb(85, 85, 255); }", …}length: 1__proto__: CSSRuleListdisabled: falsehref: nullmedia: MediaList {mediaText: "", length: 0}ownerNode: styleownerRule: nullparentStyleSheet: nullrules: CSSRuleList {0: CSSStyleRule, length: 1}title: nulltype: "text/css"__proto__: CSSStyleSheet
+
+undefined
+
+mainStyle.addRule("p", "background-color: #000000;", 0);
+
+-1
+
+mainStyle.addRule("p", "color: #ffffff;", 0);
+
+-1
+
+mainStyle.addRule("p", "font-size: 24px;", 0);
+
+-1
+
+mainStyle.addRule("p", "padding: 10px", 0);
+
+-1
+
+mainStyle.addRule("p", "width: 90%; margin-left: auto; margin-right: auto;", 0);
+
+-1
+
+mainStyle.addRule("body", "font-family: sans-serif", 0);
+
+-1
+
+mainStyle.addRule("h1", "font-size: 40px", 0);
+
+-1
+
+console.log(document.body.getElementsByTagName("p").toString());
+
+VM2224:1 [object HTMLCollection]
+
+undefined
+
+console.log(document.body.getElementsByTagName("p")[0].toString());
+
+VM2318:1 [object HTMLParagraphElement]
+
+undefined
+
+console.log(document.body.getElementsByTagName("p")[0].innerText);
+
+VM2368:1 The is an about:blank page that I decorated. I used the JS console to add some stuff to it.
+
+undefined
+
+console.log("(I'm trying to add an ID tag to the paragraph, in case you're wondering.)");
+
+VM2637:1 (I'm trying to add an ID tag to the paragraph, in case you're wondering.)
+
+undefined
+
+console.log(document.body.getElementsByTagName("p")[0].id = "content");
+
+VM2743:1 content
+
+undefined
+
+console.log(document.body.innerHTML);
+
+VM2835:1 &lt;h1&gt;Hello Alex&lt;/h1&gt;&lt;p id="content"&gt;The is an about:blank page that I decorated. I used the JS console to add some stuff to it.&lt;/p&gt;
+
+undefined
+
+console.log("HEY! That worked!");
+
+VM2928:1 HEY! That worked!
+
+undefined
+
+var pageHead = document.body.getElementsByTagName("h1")[0];
+
+undefined
+
+pageHead; // Gives us info about the variable in Chrome'
+
+&lt;h1&gt;​Hello Alex​&lt;/h1&gt;​
+
+pageHead.id = "page_head";
+
+"page_head"
+
+mainStyle.addRule("h1", "background-color: #ffffff", 0);
+
+-1
+
+mainStyle.addRule("h1", "padding: 20px;", 0);
+
+-1
+
+mainStyle.addRule("#content", "min-height: 90%;", 0);
+
+-1
+
+for (var i = 0; i &lt; mainStyle.rules.length; i++) { console.log(mainStyle.rules[i]); };
+
+VM4711:1 CSSStyleRule {selectorText: "#content", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "#content { min-height: 90%; }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "h1", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "h1 { padding: 20px; }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "h1", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "h1 { background-color: rgb(255, 255, 255); }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "h1", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "h1 { font-size: 40px; }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "body", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "body { font-family: sans-serif; }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "p", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "p { width: 90%; margin-left: auto; margin-right: auto; }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "p", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "p { padding: 10px; }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "p", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "p { font-size: 24px; }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "p", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "p { color: rgb(255, 255, 255); }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "p", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "p { background-color: rgb(0, 0, 0); }", …}
+
+VM4711:1 CSSStyleRule {selectorText: "body", style: CSSStyleDeclaration, styleMap: StylePropertyMap, type: 1, cssText: "body { background-color: rgb(85, 85, 255); }", …}
+
+undefined
+
+mainStyle.removeRule(0);
+
+undefined
+
+mainStyle.addRule("#content", "min-height: calc(90% - 100px);", 0);
+
+-1
+
+alert("I'm running out of ideas!!");
+
+undefined
+</code>
+</pre>
+
+
+</main>
+<footer class="contBox"></footer>
+
+<script src="../scripts/main.js"></script>
+</body>
+</html>
