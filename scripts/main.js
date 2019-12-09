@@ -30,11 +30,12 @@ let blinkerCursorElement = null;
 
 
 const navbarEntries = {
-    "Home": "_index.html",
+    // "Home": "old_index.html",
+    "Table of Contents": "index.html",
     "About Me": "introduction.html",
     "Contract": "contract.html",
     "My Brand": "my_brand.html",
-    "Table of Contents": "table_of_contents.html"
+
 };
 
 

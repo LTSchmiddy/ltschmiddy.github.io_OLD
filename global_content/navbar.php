@@ -21,11 +21,11 @@ function assembleNavbar($thisPageId, $pathToRoot) {
         if ($pages[$i]->pageId == $thisPageId){
             $retVal = $retVal . "<a class=\"SelectedPage\" href ='" . $pathToRoot . "/" . $pages[$i]->path . "'>" . $pages[$i]->navbarName . "</a> ";
 //            $retVal = $retVal . "<button class=\"SelectedPage\" onclick=\"GoToPage('" . $pages[$i]->path ."')\" >" . $pages[$i]->navbarName . "</button> ";
-            // retVal += "<button class=\"SelectedPage\" href=\"_index.html?page=" + NavbarEntries[i][1] +"\">" + NavbarEntries[i][0] + "</button> ";
+            // retVal += "<button class=\"SelectedPage\" href=\"old_index.html?page=" + NavbarEntries[i][1] +"\">" + NavbarEntries[i][0] + "</button> ";
         } else {
             $retVal = $retVal . "<a class=\"UnselectedPage\" href ='" . $pathToRoot . "/" . $pages[$i]->path . "'>" . $pages[$i]->navbarName . "</a> ";
 //            $retVal = $retVal . "<button class=\"UnselectedPage\" onclick=\"GoToPage('" . $pages[$i]->path . "')\" >" . $pages[$i]->navbarName . "</button> ";
-            // retVal += "<button class=\"UnselectedPage\" href=\"_index.html?page=" + NavbarEntries[i][1] +"\">" + NavbarEntries[i][0] + "</button> ";
+            // retVal += "<button class=\"UnselectedPage\" href=\"old_index.html?page=" + NavbarEntries[i][1] +"\">" + NavbarEntries[i][0] + "</button> ";
         }
     }
 
