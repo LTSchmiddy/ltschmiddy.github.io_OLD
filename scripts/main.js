@@ -51,23 +51,31 @@ function GoToPage(nextPage) {
 }
 
 // Construct Page
-function loadHeader() {
-    $('header').html("<div id=\"headerNameArea\">\n" +
-        "<h1>&gt;&gt;Trove Media Library Manager<span id=\"blinkingUnderscore\"></span></h1>\n" +
-        "</div>");
+function loadHeader(pathToRoot) {
+    // $('header').html("<div id=\"headerNameArea\">\n" +
+    //     "<h1>&gt;&gt;Trove Media Library Manager<span id=\"blinkingUnderscore\"></span></h1>\n" +
+    //     "</div>");
+
+    console.log(pathToRoot + "components/header.html");
+    $.get(pathToRoot + "components/header.html", {}, function(data, status){
+
+        // console.log(data);
+        $('header').html(data);
+    });
+
 
 }
 
 function loadFooter(pathToRoot) {
-    $('footer').html("<div id=\"FooterContent\">\n" +
-        "© 2019 - designed by LT_Schmiddy (Alex Schmid). <br/><br/>\n" +
-        "<a href=\"http://validator.w3.org/check?uri=referer\" target=\"_blank\">\n" +
-        "<img src=\"" + pathToRoot + "images/valid_html5.gif\" alt=\"Validate HTML!\"></a>\n" +
-        "<a href=\"http://jigsaw.w3.org/css-validator/check/referer\" target=\"_blank\">\n" +
-        "<img src=\"" + pathToRoot + "images/vcss-blue.gif\" alt=\"Validate CSS!\"></a>\n" +
-        "</div>");
+    // $('footer').html();
+    console.log(pathToRoot + "components/header.html");
+    $.get(pathToRoot + "components/footer.html", {}, function(data, status){
 
+        let returnData = data.toString().replace("__ROOT-FOR-HTML-BUTTON__", pathToRoot).replace("__ROOT-FOR-CSS-BUTTON__", pathToRoot);
 
+        // console.log(data);
+        $('footer').html(returnData);
+    });
 }
 
 
@@ -91,8 +99,8 @@ function assembleNavbar(pageId, pathToRoot) {
 
     });
 
-    console.log("Assembling Navbar");
-    console.log(retVal);
+    // console.log("Assembling Navbar");
+    // console.log(retVal);
 
     navbar.html(retVal);
 }
@@ -126,7 +134,7 @@ $(document).ready(function(){
     let pageId = $('meta[name=pageId]').attr("content");
 
 
-    loadHeader();
+    loadHeader(pathToRoot);
     loadFooter(pathToRoot);
 
     blinkHandlerOn();
