@@ -31,9 +31,28 @@
         Alex's Web115 Assignments - Table of Contents:
     </h2>
 
-    <ol id="assignment-toc-list">
+    <ol id="assignment-toc-list"></ol>
 
-    </ol>
+
+
+
+    <div id="dir-contents" hidden>
+        <hr/>
+
+        <h3>
+            Root Directory Contents:
+        </h3>
+
+        <h4>
+            Directories:
+        </h4>
+        <ul id="dir-list" class="dir-listing"></ul>
+
+        <h4>
+            Files:
+        </h4>
+        <ul id="file-list" class="dir-listing"></ul>
+    </div>
 
 
 </main>
@@ -42,11 +61,23 @@
 <script src="scripts/main.js"></script>
 <script src="scripts/toc.js"></script>
 <script>
+
+
     $(document).ready(function() {
-        console.log(checkForPHP(()=>{
+        console.log(checkForPHP("", ()=>{
             console.log("PHP Detected");
+
+            $("#dir-contents").show();
+
+            cgi_ListRootDir("", data => {
+                assembleRootFileList("", data, "file-list");
+                assembleRootDirList("", data, "dir-list");
+
+            });
         }, ()=>{
             console.log("PHP NOT Detected");
+
+
         }));
     });
 

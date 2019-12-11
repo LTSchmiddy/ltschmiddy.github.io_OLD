@@ -151,3 +151,11 @@ code {
     background-color: black;
     color: #008800;
 }
+
+.dir-listing a {
+    text-decoration: none;
+}
+
+ul.dir-listing {
+    margin-bottom: 60px;
+}
