@@ -56,8 +56,8 @@ function loadHeader(pathToRoot) {
     //     "<h1>&gt;&gt;Trove Media Library Manager<span id=\"blinkingUnderscore\"></span></h1>\n" +
     //     "</div>");
 
-    console.log(pathToRoot + "components/header.html");
-    $.get(pathToRoot + "components/header.html", {}, function(data, status){
+    console.log(pathToRoot + "components/site_header.html");
+    $.get(pathToRoot + "components/site_header.html", {}, function(data, status){
 
         // console.log(data);
         $('header').html(data);
@@ -68,8 +68,8 @@ function loadHeader(pathToRoot) {
 
 function loadFooter(pathToRoot) {
     // $('footer').html();
-    console.log(pathToRoot + "components/header.html");
-    $.get(pathToRoot + "components/footer.html", {}, function(data, status){
+    console.log(pathToRoot + "components/site_header.html");
+    $.get(pathToRoot + "components/site_footer.html", {}, function(data, status){
 
         let returnData = data.toString().replace("__ROOT-FOR-HTML-BUTTON__", pathToRoot).replace("__ROOT-FOR-CSS-BUTTON__", pathToRoot);
 
