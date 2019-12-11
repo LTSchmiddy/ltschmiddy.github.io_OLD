@@ -43,7 +43,11 @@
 <script src="scripts/toc.js"></script>
 <script>
     $(document).ready(function() {
-        checkForPHP();
+        console.log(checkForPHP(()=>{
+            console.log("PHP Detected");
+        }, ()=>{
+            console.log("PHP NOT Detected");
+        }));
     });
 
 
