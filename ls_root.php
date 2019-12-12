@@ -11,7 +11,11 @@ $retVal = [
 
 for ($i = 0; $i < count($dirCont); $i++) {
 
-    if (is_dir($pathToRoot . $dirCont[$i])){
+    if ($dirCont[$i] == ".") {
+        continue;
+    }
+
+    if (is_dir($pathToRoot . $dirCont[$i]) || $dirCont[$i] == ".."){
 
         array_push($retVal["dirs"], $dirCont[$i]);
     }

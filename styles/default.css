@@ -6,7 +6,10 @@ body {
     /*background-size: cover;*/
     background-color: #7777ff;
     font-size: 22px;
+
 }
+
+
 
 .contBox {
     margin-left: auto;
@@ -20,9 +23,15 @@ body {
     border-radius: 15px;
 }
 
-@media only screen and (max-width: 900px)  {
+/*@media (max-width: 600px)  {*/
+/*    .contBox {*/
+/*        width: 85%;*/
+/*    }*/
+/*}*/
+
+@media only screen and (max-width: 600px)  {
     .contBox {
-        width: calc(90% - 30px);
+        width: calc(90% - 600px);
     }
 }
 
@@ -40,6 +49,9 @@ main, footer {
 nav {
     margin-bottom: 20px;
     z-index: -1;
+}
+nav a {
+    text-decoration: underline;
 }
 
 #footerLinks{
@@ -62,13 +74,24 @@ nav {
 }
 
 .UnselectedPage:hover {
+    color: #666666;
 }
+
 
 #headerNameArea {
     position: absolute;
     top: 25px;
     width: calc(70% - 20px);
     left: calc(0% + 20px);
+}
+
+#sloganArea {
+    position: absolute;
+    width: 250px;
+    right: 30px;
+    bottom: 20px;
+    color: #888888;
+    font-style: normal;
 }
 
 #headerFigureArea {
@@ -83,6 +106,7 @@ header h1 {
     font-weight: bolder;
     font-style: italic;
     /*text-decoration: underline;*/
+    text-decoration: none !important;
 }
 
 main h1 {
@@ -93,7 +117,7 @@ main h1 {
 main h2 {
     font-size: 30px;
     font-weight: bolder;
-    text-decoration: underline;
+    text-decoration: none;
     /*font-style: italic;*/
 }
 
@@ -140,7 +164,8 @@ main a:visited {
 }
 
 main a:hover{
-    color: #7777ff;
+    /*color: #7777ff;*/
+    color: #666666;
 }
 
 .scroll_pane {
@@ -159,3 +184,8 @@ code {
 ul.dir-listing {
     margin-bottom: 60px;
 }
+
+a {
+    text-decoration: none;
+}
+

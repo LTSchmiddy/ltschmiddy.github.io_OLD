@@ -8,7 +8,9 @@ const tocEntries = {
     "FizzBuzz 1": "assignments/fizzbuzz/fizzbuzz1.html",
     "FizzBuzz 2": "assignments/fizzbuzz/fizzbuzz2.html",
     "FizzBuzz 3": "assignments/fizzbuzz/fizzbuzz3.html",
-    "FizzBuzz 4": "assignments/fizzbuzz/fizzbuzz4.html"
+    "FizzBuzz 4": "assignments/fizzbuzz/fizzbuzz4.html",
+    "One Page JS Site - Original": "onepage_original/unfold-free-lite/index.html",
+    "One Page JS Site - Modified": "onepage_modified/unfold-free-lite/index.html"
 };
 
 function assembleToc() {
